@@ -266,3 +266,13 @@ body {
   width: 144px;
 }
 
+.help{
+  width: 4%;
+  position: sticky;
+  top: 180px;
+  float: right;
+  margin-right: 2%;
+  margin-top: 1%;
+  cursor: pointer;
+}
+
