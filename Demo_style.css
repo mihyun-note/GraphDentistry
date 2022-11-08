@@ -27,7 +27,7 @@ body {
 #header .section .logo {
   float: left;
   margin: 0;
-  padding: 3%;
+  padding: 2.5%;
 
 }
 #header .section .logo a {
@@ -43,19 +43,32 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   width: 10%;
-  vertical-align: middle;
+
+}
+
+#header .section .logo span {
+  color: rgb(31, 31, 31);
+  display: block;
+  font-family: "Arimo-Bold";
+  font-size: 60px;
+  font-weight: normal;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+  width: 10%;
 }
 #header .section ul {
   display: inline-block;
   float: right;
   margin: 0;
   overflow: hidden;
-  padding: 4% 3% 0 0;
+  padding: 3.8% 3% 0 0;
   width: 30%;
 }
 #header .section ul li {
   display: inline-block;
-  float: left;
   list-style: none;
   margin: 0 1%;
   padding: 0;
@@ -73,52 +86,75 @@ body {
   text-decoration: none;
   text-transform: uppercase;
 }
-#header .section ul li a:hover {
+
+#header .section ul li span {
+  color: rgb(61, 61, 61);
+  display: inline-block;
+  font-size: 20px;
+  height: 10%;
+  letter-spacing: 0.05em;
+  line-height: 30px;
+  margin: 0;
+  padding: 0 15px;
+  text-align: center;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+#header .section ul li a:hover,#header .section ul li span:hover  {
   color: #ccc;
 }
+
 .article {
   background: #fff;
   border: 3px solid #86a9b6;
   border-radius: 4px;
-  margin: 50px auto 28px;
+  margin: 3% auto;
   overflow: hidden;
   padding: 0;
-  width: 936px;
+  width: 65%;
+  color: #000;
 }
  .article h1 {
   color: #1b2130;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 40px;
-  font-weight: normal;
+  font-weight: bolder;
   text-align: center;
   line-height: 50px;
-  padding: 10%;
+  padding: 8%;
 }
 #body {
   margin: 0 auto;
-  min-height: 812px;
-  padding: 20px 0 50px;
-  width: 960px;
+  width: 80%;
+  margin-bottom: 3%;
 }
 #body > ul {
   margin: 0;
   overflow: hidden;
-  padding: 0;
+  text-align: center;
 }
 #body > ul li {
   float: left;
   list-style: none;
-  margin: 0 10px;
   padding: 0;
-  width: 220px;
+  width: 40%;
+  margin-bottom: 3%;
+}
+
+.body_left {
+  margin-right: 10%;
+}
+
+.cat{
+  width: 80%;
+  height: 295px;
 }
 #body > ul li b {
   color: #000;
   display: block;
-  font-size: 25px;
-  font-weight: normal;
-  margin: 0;
-  padding: 10px 0 5px;
+  font-size: 30px;
+  font-weight: bold;
+  margin-bottom: 2%;
   text-transform: capitalize;
 }
 #body > ul li p {
@@ -134,40 +170,25 @@ body {
   overflow: hidden;
   padding: 50px 0 0;
 }
-#body h2 {
-  color: #fff;
-  font-family: "Noto Sans KR", sans-serif;
-  font-size: 20px;
-  font-weight: normal;
-  height: 47px;
-  letter-spacing: 0.1em;
-  left: 15px;
-  line-height: 47px;
-  margin: 0;
-  padding: 0 25px;
-  position: absolute;
-  text-transform: capitalize;
-  top: -14px;
-}
+
 #body div div {
   float: left;
-  margin: 0 10px;
+  margin: 0 5%;
   padding: 0;
+  text-align: center;
 }
 #body div .featured {
   background: #fff;
   border: 5px solid #86a9b6;
   border-radius: 4px;
-  min-height: 450px;
-  padding: 10px 15px 15px;
-
-  width: 420px;
-  height: 545px;
+  padding: 2%;
+  width: 35%;
+  height: 30%;
 }
 #body div .featured h3 {
   color: #354057;
   font-size: 30px;
-  font-weight: normal;
+  font-weight: bold;
   text-transform: none;
 }
 #body div .featured p {
@@ -179,7 +200,7 @@ body {
   padding: 0;
 }
 #body div .section {
-  width: 460px;
+  width: 40%;
 }
 #body div .section div {
   background: #86a9b6;
@@ -190,17 +211,16 @@ body {
 
 }
 #body div .section .articles {
-  height: 380px;
   margin-bottom: 25px;
   padding: 15px 15px 20px;
-  text-align: right;
+  text-align: center;
 }
 #body div .section .articles p {
   color: #f5f5f5;
   font-size: 17px;
   line-height: 24px;
   margin: 0;
-  text-align: left;
+  text-align: center;
 }
 #body div .section .newsletter {
   height: 95px;
