@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko" xml:lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <style>
+      body {
+        background-color: #052f5f;
+        font-family: "Ubuntu", sans-serif;
+        width: 450px;
+      }
+
+      .main {
+        background-color: #ffffff;
+        width: 400px;
+        height: 400px;
+        margin: 3em auto;
+        border-radius: 1.5em;
+        box-shadow: 0px 11px 35px 5px rgba(0, 0, 0, 0.14);
+      }
+      .title {
+        padding-top: 30px;
+        color: #052f5f;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bold;
+        font-size: 23px;
+        text-align: center;
+      }
+      hr {
+        width: 300px;
+      }
+      .text {
+        margin-top: 100px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bold;
+        font-size: 13px;
+        line-height: 150%;
+        text-align: center;
+      }
+      .barImg {
+        margin: 10px;
+        width: 15%;
+        position: absolute;
+        top: 130px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+
+      .dentistryTitle {
+        margin-top: 25px;
+        margin-bottom: 10px;
+        padding-left: 20px;
+        padding-right: 20px;
+        font-family: "Ubuntu", sans-serif;
+        font-weight: bold;
+        font-size: 18px;
+        color: #052f5f;
+        text-align: center;
+      }
+
+      .dentistry {
+        border: 2px solid #f1a208;
+        border-radius: 1.2em;
+        margin-left: 30px;
+        margin-right: 30px;
+        padding: 10px;
+        font-family: "Ubuntu", sans-serif;
+        font-size: 13px;
+      }
+    </style>
+    <script src="popup.js"></script>
+  </head>
+  <body>
+    <div class="main">
+      <p class="title">Graph Dentistry?</p>
+      <hr />
+
+      <div>
+        <img src="./images/bar.png" class="barImg" />
+        <p class="text">
+          Graph Dentistry는 페이지 내의 Bar그래프 이미지를 인식해 <br />그래프가
+          가진 정보디자인 오류를 사용자에게 알려줍니다. <br />또한 실제 데이터에
+          맞는 그래프를 새로 그려줍니다.
+        </p>
+      </div>
+
+      <div>
+        <div class="dentistryTitle">교정 내용</div>
+        <div class="dentistry">
+          <li>실제 데이터와 그래프 수치가 다른 오류</li>
+          <li>축 간격이 일정하지 않은 오류</li>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -4,15 +4,19 @@
   "description": "그래프 치과",
   "version": "1.0",
 
-  "icons": {
-    "16": "images/icon-16.png",
-    "32": "images/icon-32.png",
-    "48": "images/icon-48.png",
-    "128": "images/icon-128.png"
+  "action": {
+    "default_icon": {
+      "16": "images/icon-16.png",
+      "32": "images/icon-32.png",
+      "48": "images/icon-48.png",
+      "128": "images/icon-128.png"
+    },
+    "default_popup": "popup.html"
   },
+
   "content_scripts": [
     {
-      "js": ["scripts/content.js"],
+      "js": ["node_modules/chart.js/dist/chart.js", "scripts/content.js"],
       "matches": ["http://127.0.0.1:5500/*"]
     }
   ]

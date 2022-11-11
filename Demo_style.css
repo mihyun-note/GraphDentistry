@@ -17,7 +17,6 @@ body {
   padding: 0;
   position: sticky;
   top: 0;
-
 }
 #header .section {
   background: #86a9b6;
@@ -28,7 +27,6 @@ body {
   float: left;
   margin: 0;
   padding: 2.5%;
-
 }
 #header .section .logo a {
   color: rgb(31, 31, 31);
@@ -43,7 +41,6 @@ body {
   text-decoration: none;
   text-transform: uppercase;
   width: 10%;
-
 }
 
 #header .section .logo span {
@@ -100,7 +97,8 @@ body {
   text-decoration: none;
   text-transform: uppercase;
 }
-#header .section ul li a:hover,#header .section ul li span:hover  {
+#header .section ul li a:hover,
+#header .section ul li span:hover {
   color: #ccc;
 }
 
@@ -114,7 +112,7 @@ body {
   width: 65%;
   color: #000;
 }
- .article h1 {
+.article h1 {
   color: #1b2130;
   font-family: "Noto Sans KR", sans-serif;
   font-size: 40px;
@@ -145,7 +143,7 @@ body {
   margin-right: 10%;
 }
 
-.cat{
+.cat {
   width: 80%;
   height: 295px;
 }
@@ -208,8 +206,8 @@ body {
   float: none;
   margin: 0;
   padding: 0 15px;
-
 }
+
 #body div .section .articles {
   margin-bottom: 25px;
   padding: 15px 15px 20px;
@@ -266,8 +264,8 @@ body {
   width: 144px;
 }
 
-.help{
-  width: 4%;
+.help {
+  background-image: url("../images/help.svg");
   position: sticky;
   top: 180px;
   float: right;
@@ -275,4 +273,3 @@ body {
   margin-top: 1%;
   cursor: pointer;
 }
-

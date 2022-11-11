@@ -1,0 +1,22 @@
+{
+  "name": "graphdentistry",
+  "version": "1.0.0",
+  "description": "",
+  "main": "popup.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mihyun-note/GraphDentistry.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mihyun-note/GraphDentistry/issues"
+  },
+  "homepage": "https://github.com/mihyun-note/GraphDentistry#readme",
+  "dependencies": {
+    "chart.js": "^3.9.1"
+  }
+}

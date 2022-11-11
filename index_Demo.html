@@ -1,16 +1,10 @@
 <!DOCTYPE html>
 <!-- Website Template by freewebsitetemplates.com -->
 <html>
-
   <head>
     <meta charset="UTF-8" />
     <title>Graph Dentistry page</title>
     <link rel="stylesheet" href="Demo_style.css" type="text/css" />
-    <script>
-      function helpClick(){
-        alert('도움말')
-      }
-    </script>
   </head>
   <body>
     <div id="header">
@@ -33,7 +27,6 @@
           </li>
         </ul>
       </div>
-      <img class='help' src="./images/help.svg" onclick="helpClick()"/>
     </div>
     <div class="article">
       <h1>Graph Dentistry DEMO page</h1>
@@ -84,13 +77,17 @@
         </div>
       </div>
     </div>
+
+    <div style="width: 900px; height: 900px">
+      <!--차트가 그려질 부분-->
+      <canvas id="myChart"></canvas>
+    </div>
+
     <div id="footer">
       <div>
         <div class="connect"></div>
         <p>&copy; copyright 2023 | all rights reserved.</p>
       </div>
     </div>
-
   </body>
-
 </html>
