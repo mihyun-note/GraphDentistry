@@ -35,11 +35,11 @@ for (var i = 0; i < img.length; i++) {
   img[i].insertAdjacentElement("afterend", chartDiv[i]);
 
   chartX[i] = ["1", "2", "3", "4", "5"];
-  chartY = [0, 50];
-  chartDATA = [21, 19, 25, 26, 25 + i];
-  chartCOLOR = ["rgba(255, 99, 132, 0.5)", "rgba(54, 162, 235, 0.5)"];
+  chartY[i] = [0, 50];
+  chartDATA[i] = [21, 19, 25, 26, 25 + i];
+  chartCOLOR[i] = ["rgba(255, 99, 132, 0.5)", "rgba(54, 162, 235, 0.5)"];
   //chart그리기 함수
-  graph_redraw(i, chartX, chartY, chartDATA, chartCOLOR);
+  graph_redraw(i, chartX[i], chartY[i], chartDATA[i], chartCOLOR[i]);
 
   //텍스트 삽입
   chartDiv[i].insertAdjacentElement("afterend", text_[i]);
