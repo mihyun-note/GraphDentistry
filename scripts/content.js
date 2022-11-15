@@ -1,87 +1,79 @@
 //img 태그 인식
 const img = document.querySelectorAll("img");
 
-//이미지 아래에 추가할 <p>태그 생성
+//이미지 아래에 추가할 text를 담을 배열
 const text_ = [];
+
+//이미지 아래에 추가할 chart를 담을 배열
+const chartDiv = [];
+const chart = [];
+
+//예시 텍스트(테스트용)
+const ex = [];
+
+//chart 데이터를 담을 변수
+let chartX = [];
+let chartY = [];
+let chartDATA = [];
+let chartCOLOR = [];
 
 for (var i = 0; i < img.length; i++) {
   //text_.classList.add("color-secondary-text", "type--caption");
   text_[i] = document.createElement("p");
   text_[i].textContent = img[i].alt + `: text add`;
   //console.log(text_[i], i, img[i]);
-  //텍스트 삽입
 
-  //graph_redraw();
-  img[i].insertAdjacentElement("afterend", text_[i]);
+  //img개수만큼 mychart document추가
+  chartDiv[i] = document.createElement("div");
+  chart[i] = document.createElement("canvas");
+
+  chart[i].id = "chart" + i;
+  //div태그안에 canvas 삽입
+  chartDiv[i].appendChild(chart[i]);
+
+  //img아래에 <div><canvas></canvas></div> 삽입
+  img[i].insertAdjacentElement("afterend", chartDiv[i]);
+
+  chartX[i] = ["1", "2", "3", "4", "5"];
+  chartY = [0, 50];
+  chartDATA = [21, 19, 25, 26, 25 + i];
+  chartCOLOR = ["rgba(255, 99, 132, 0.5)", "rgba(54, 162, 235, 0.5)"];
+  //chart그리기 함수
+  graph_redraw(i, chartX, chartY, chartDATA, chartCOLOR);
+
+  //텍스트 삽입
+  chartDiv[i].insertAdjacentElement("afterend", text_[i]);
+
+  ex[i] = document.createElement("p");
+  ex[i].textContent = "그래프 교정";
+  img[i].insertAdjacentElement("afterend", ex[i]);
 }
 
-var context = document.getElementById("myChart").getContext("2d");
-var myChart = new Chart(context, {
-  type: "bar", // 차트의 형태
-  data: {
-    // 차트에 들어갈 데이터
-    labels: [
-      //x 축
-      "1",
-      "2",
-      "3",
-      "4",
-      "5",
-      "6",
-      "7",
-    ],
-    datasets: [
-      {
-        //데이터
-        label: "test1", //차트 제목
-        fill: false, // line 형태일 때, 선 안쪽을 채우는지 안채우는지
-        data: [
-          21,
-          19,
-          25,
-          20,
-          23,
-          26,
-          25, //x축 label에 대응되는 데이터 값
-        ],
-        backgroundColor: [
-          //색상
-          "rgba(255, 99, 132, 0.2)",
-          "rgba(54, 162, 235, 0.2)",
-          "rgba(255, 206, 86, 0.2)",
-          "rgba(75, 192, 192, 0.2)",
-          "rgba(153, 102, 255, 0.2)",
-          "rgba(255, 159, 64, 0.2)",
-        ],
-        borderColor: [
-          //경계선 색상
-          "rgba(255, 99, 132, 1)",
-          "rgba(54, 162, 235, 1)",
-          "rgba(255, 206, 86, 1)",
-          "rgba(75, 192, 192, 1)",
-          "rgba(153, 102, 255, 1)",
-          "rgba(255, 159, 64, 1)",
-        ],
-        borderWidth: 1, //경계선 굵기
-      },
-      {
-        label: "test2",
-        fill: false,
-        data: [8, 34, 12, 24],
-        backgroundColor: "rgb(157, 109, 12)",
-        borderColor: "rgb(157, 109, 12)",
-      },
-    ],
-  },
-  options: {
-    scales: {
-      yAxes: [
+function graph_redraw(count, chartX, chartY, chartDATA, chartCOLOR) {
+  var context = document.getElementById("chart" + count).getContext("2d");
+  var myChart = new Chart(context, {
+    type: "bar",
+    data: {
+      labels: chartX,
+      datasets: [
         {
-          ticks: {
-            beginAtZero: true,
-          },
+          label: "test1", //차트 제목
+          fill: false,
+          data: chartDATA,
+          backgroundColor: chartCOLOR,
+          borderColor: chartCOLOR,
+          borderWidth: 1,
         },
       ],
     },
-  },
-});
+    options: {
+      responsive: false,
+      scales: {
+        yAxes: {
+          min: chartY[0],
+          max: chartY[1],
+        },
+      },
+    },
+  });
+}
