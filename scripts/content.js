@@ -21,6 +21,7 @@ for (var i = 0; i < img.length; i++) {
   //text_.classList.add("color-secondary-text", "type--caption");
   text_[i] = document.createElement("p");
   text_[i].textContent = img[i].alt + `: text add`;
+  text_[i].id = "addText";
   //console.log(text_[i], i, img[i]);
 
   //img개수만큼 mychart document추가
@@ -47,6 +48,7 @@ for (var i = 0; i < img.length; i++) {
   ex[i] = document.createElement("p");
   ex[i].textContent = "그래프 교정";
   img[i].insertAdjacentElement("afterend", ex[i]);
+  ex[i].id = "addP";
 }
 
 function graph_redraw(count, chartX, chartY, chartDATA, chartCOLOR) {
