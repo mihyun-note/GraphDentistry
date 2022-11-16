@@ -11,6 +11,7 @@
         alert('도움말')
       }
     </script>
+ <script src="./node_modules/chart.js/dist/chart.js"></script>
   </head>
   <body>
     <div id="header">
@@ -90,7 +91,11 @@
         <p>&copy; copyright 2023 | all rights reserved.</p>
       </div>
     </div>
+    <div style="width: 900px; height: 900px;">
+      <!--차트가 그려질 부분-->
+      <canvas id="myChart"></canvas>
+    </div>
+
 
   </body>
-
 </html>
