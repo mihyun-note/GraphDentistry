@@ -1,15 +1,11 @@
-//img 태그 인식
 const img = document.querySelectorAll("img");
 
-//이미지 아래에 추가할 오류 내역을 담을 배열
 const ErrorTitle = [];
 const ErrorText = [];
 
-//이미지 아래에 추가할 chart를 담을 배열
 const chartDiv = [];
 const chart = [];
 
-//예시 텍스트(테스트용)
 const ex = [];
 
 //chart 데이터를 담을 변수
@@ -25,51 +21,28 @@ let chartStatus;
 let context;
 let myChart;
 
-//예시 데이터
-let RESdata = {
-  status: "ERROR_FOUND",
-  errorChartList: [
-    {
-      legend: "비행기2",
-      text: 44.0,
-      data: 45.3,
-      errorDiff: 1.2999992,
-      color: [252, 141, 98],
-      xlabel: "수",
+let RESdata;
+
+function resData(link) {
+  fetch("http://kwhcclab.com:20701/api/chambit/graph", {
+    method: "POST",
+    headers: {
+      "Content-Type": "text/plain",
     },
-  ],
-  xlabels: ["월", "화", "수", "목", "금", "토", "일"],
-  ylabels: [50.0, 40.0, 30.0, 20.0, 10.0, 0.0],
-  chartDatas: [
-    {
-      legend: "비행기1",
-      legendColor: [102, 194, 165],
-      valueTexts: [21, 34, 48, 46, 38, 37, 30],
-    },
-    {
-      legend: "비행기2",
-      legendColor: [252, 141, 98],
-      valueTexts: [23, 35, 44, 47, 40, 34, 37],
-    },
-  ],
-};
+    body: link,
+  }).then((res) => {
+    res = res.json();
+    res.then((RESdata) => {
+      return RESdata;
+    });
+  });
+}
 
 for (var i = 0; i < img.length; i++) {
-  console.log(img[i].width + ", " + img[i].height);
-
   ErrorTitle[i] = document.createElement("p");
   ErrorTitle[i].id = "addText";
 
-  /*!!통신 자리!!------------------
-
-
-  fetch("url").then((res)=>{
-  return res.text();
-  }).then((res)=>{
-  console.log(res)
-  })
-
-  -------------------------------*/
+  RESdata = resData(img[i].src);
 
   chartStatus = RESdata["status"];
 
@@ -85,7 +58,6 @@ for (var i = 0; i < img.length; i++) {
     ex[i].id = "addP";
     img[i].insertAdjacentElement("afterend", ex[i]);
 
-    //img개수만큼 mychart document추가
     chartDiv[i] = document.createElement("div");
     chart[i] = document.createElement("canvas");
     chart[i].id = "chart" + i;
@@ -94,12 +66,10 @@ for (var i = 0; i < img.length; i++) {
     chartDiv[i].appendChild(chart[i]);
     ex[i].insertAdjacentElement("afterend", chartDiv[i]);
 
-    console.log(chart[i].width + ", " + chart[i].height);
-
     chartX = RESdata["xlabels"];
     chartY = [RESdata["ylabels"][-1], RESdata["ylabels"][0]];
-    chartCount = RESdata["chartDatas"].length;
-    chartDATAS = RESdata["chartDatas"];
+    chartCount = RESdata["chartDataList"].length;
+    chartDATAS = RESdata["chartDataList"];
     chartERROR = RESdata["errorChartList"];
 
     graph_redraw(i, chartX, chartY);
@@ -157,8 +127,6 @@ function addData(myChart, chartCount, chartDATAS) {
 }
 
 function ToHex(N) {
-  //RGB color Hex코드로 변환
-
   if (N == null) return "00";
   N = parseInt(N);
   if (N == 0) return "00";
