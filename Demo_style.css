@@ -20,7 +20,7 @@ body {
   z-index: 999;
 }
 #header .section {
-  background: #052F5F;
+  background: #052f5f;
   overflow: hidden;
 }
 
@@ -30,7 +30,7 @@ body {
   padding: 2.5%;
 }
 #header .section .logo a {
-  color: #F1A208;
+  color: #f1a208;
   display: block;
   font-family: "Arimo-Bold";
   font-size: 60px;
@@ -59,7 +59,7 @@ body {
   padding: 0;
 }
 #header .section ul li a {
-  color: #F1A208;
+  color: #f1a208;
   display: inline-block;
   font-size: 20px;
   height: 10%;
@@ -73,7 +73,7 @@ body {
 }
 
 #header .section ul li span {
-  color:  #F1A208;
+  color: #f1a208;
   display: inline-block;
   font-size: 20px;
   height: 10%;
@@ -87,12 +87,12 @@ body {
 }
 #header .section ul li a:hover,
 #header .section ul li span:hover {
-  color: #D5C67A;
+  color: #d5c67a;
 }
 
 .article {
   background: #fff;
-  border: 3px solid #052F5F;
+  border: 3px solid #052f5f;
   border-radius: 4px;
   margin: 3% auto;
   overflow: hidden;
@@ -125,10 +125,10 @@ body {
   padding: 3%;
   width: 36%;
   margin-bottom: 3%;
-  border: 5px solid rgba(213,198,122, 0.7);
+  border: 5px solid rgba(213, 198, 122, 0.7);
   background-color: white;
   padding-top: 1%;
-  box-shadow: 5px 5px 5px rgba(5, 47, 95, 0.1) ;
+  box-shadow: 5px 5px 5px rgba(5, 47, 95, 0.1);
 }
 
 .body_left {
@@ -202,21 +202,14 @@ body {
   cursor: pointer;
 }
 
-
-#addP{
+#addP {
   margin-top: 8% !important;
   font-size: large;
   font-weight: bold;
-  margin-bottom: 2%  !important;
+  margin-bottom: 2% !important;
 }
 
-canvas{
-
-  width: 100% !important;
-  height: 200px !important;
-}
-
-#addText{
-  border: 2px solid #F4F4F4;
+#addText {
+  border: 2px solid #f4f4f4;
   background-color: rgba(5, 47, 95, 0.1);
 }

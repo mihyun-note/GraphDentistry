@@ -55,6 +55,8 @@ let RESdata = {
 };
 
 for (var i = 0; i < img.length; i++) {
+  console.log(img[i].width + ", " + img[i].height);
+
   ErrorTitle[i] = document.createElement("p");
   ErrorTitle[i].id = "addText";
 
@@ -87,8 +89,12 @@ for (var i = 0; i < img.length; i++) {
     chartDiv[i] = document.createElement("div");
     chart[i] = document.createElement("canvas");
     chart[i].id = "chart" + i;
+    chart[i].width = img[i].width;
+    chart[i].height = img[i].height;
     chartDiv[i].appendChild(chart[i]);
     ex[i].insertAdjacentElement("afterend", chartDiv[i]);
+
+    console.log(chart[i].width + ", " + chart[i].height);
 
     chartX = RESdata["xlabels"];
     chartY = [RESdata["ylabels"][-1], RESdata["ylabels"][0]];
@@ -117,7 +123,7 @@ function graph_redraw(count, chartX, chartY) {
       labels: chartX,
     },
     options: {
-      responsive: false,
+      responsive: true,
       scales: {
         yAxes: {
           min: chartY[0],
