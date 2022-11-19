@@ -1,5 +1,12 @@
-const img = document.querySelectorAll("img");
-
+//const img = document.querySelectorAll("img");
+const img = [
+  "https://postfiles.pstatic.net/MjAyMjExMTdfMTM4/MDAxNjY4NjczNjA5OTI0.ER37XA-npgdClsWtPvmadPsBFdwIEO0JSqD3s6Ci6d0g.NIYZDPEVPdwEvSNzfm_0xji80w5SZS4GhcIgnOLBrZAg.PNG.dlwldmscjstk/test.PNG?type=w580",
+  "https://postfiles.pstatic.net/MjAyMjExMThfMTU4/MDAxNjY4NzY1MjM0ODMy.oIM9EFxEahIBe6BJuXrWwDqo5qB6Yf1V4gcQhgqXtU8g.MCbIoaSGKdouod2gBE2xyL1fftFqu4UcpUnPbHNLpL0g.JPEG.dlwldmscjstk/cat.jpg?type=w580",
+  "https://postfiles.pstatic.net/MjAyMjExMThfMzkg/MDAxNjY4NzY1MTc4Njk1.UajJ5lfLy6g5PWQpgHcbUz45sVjr1C9y88b2I9jq6skg.f7rT6QdvU3KHKFvJPWijys0W6Bkw402xWjuc9RhBeLEg.PNG.dlwldmscjstk/image5.png?type=w580",
+  "https://postfiles.pstatic.net/MjAyMjExMThfNTAg/MDAxNjY4NzY1MjIzMjU2.9ZUEYLUnmRm-cbAkZ4QxO-iM8amw_IyVL33_9YCxSd8g.8kzN1Pt85Pv1EuRLMLaZ2bCe_e5UKjkfZbYGa47bdcsg.PNG.dlwldmscjstk/img3.png?type=w580",
+  "https://postfiles.pstatic.net/MjAyMjExMThfMjgx/MDAxNjY4NzY1MjI5NjEz.UQbIL30i4PVGoUSDe7aPizaDB8hH0Tgy3iuVzCJ9-m8g.YnQeghS6i7aOzJeIcfNxNmasRd8_3n0CMnwJcDRQ-jsg.PNG.dlwldmscjstk/img6.png?type=w580",
+  "https://postfiles.pstatic.net/MjAyMjExMThfMTU4/MDAxNjY4NzY1MjM0ODMy.oIM9EFxEahIBe6BJuXrWwDqo5qB6Yf1V4gcQhgqXtU8g.MCbIoaSGKdouod2gBE2xyL1fftFqu4UcpUnPbHNLpL0g.JPEG.dlwldmscjstk/cat.jpg?type=w580",
+];
 const ErrorTitle = [];
 const ErrorText = [];
 
@@ -16,76 +23,74 @@ let chartCOLOR = [];
 let chartDATA = [];
 let chartlabel = [];
 let chartERROR = [];
-let chartStatus;
+let chartStatus = "";
 
 let context;
 let myChart;
 
 let RESdata;
 
-function resData(link) {
-  fetch("http://kwhcclab.com:20701/api/chambit/graph", {
+resData = async (link, i) => {
+  console.log(link, i);
+  await fetch("http://kwhcclab.com:20701/api/chambit/graph", {
     method: "POST",
     headers: {
-      "Content-Type": "text/plain",
+      "Content-Type": "application/json",
     },
-    body: link,
-  }).then((res) => {
-    res = res.json();
-    res.then((RESdata) => {
-      return RESdata;
-    });
-  });
-}
+    body: JSON.stringify({ url: link }),
+  })
+    .then((response) => response.json())
+    .then((RESdata) => {
+      console.log(RESdata);
+      chartStatus = RESdata.status;
+      console.log(chartStatus);
+      if (chartStatus == "NOT_BAR") {
+        ErrorTitle[i].textContent = "막대그래프가 아닙니다";
+        img[i].insertAdjacentElement("afterend", ErrorTitle[i]);
+      } else if (chartStatus == "NO_ERROR") {
+        ErrorTitle[i].textContent = "교정할 오류가 없습니다";
+        img[i].insertAdjacentElement("afterend", ErrorTitle[i]);
+      } else if (chartStatus == "ERROR_FOUND") {
+        ex[i] = document.createElement("p");
+        ex[i].textContent = "오류 교정 그래프";
+        ex[i].id = "addP";
+        img[i].insertAdjacentElement("afterend", ex[i]);
 
-for (var i = 0; i < img.length; i++) {
+        chartDiv[i] = document.createElement("div");
+        chart[i] = document.createElement("canvas");
+        chart[i].id = "chart" + i;
+        chart[i].width = img[i].width;
+        chart[i].height = img[i].height;
+        chartDiv[i].appendChild(chart[i]);
+        ex[i].insertAdjacentElement("afterend", chartDiv[i]);
+        chartX = RESdata.xlabels;
+        chartY = [RESdata.ylabels[-1], RESdata.ylabels[0]];
+        chartCount = RESdata.chartDataList.length;
+        chartDATAS = RESdata.chartDataList;
+        chartERROR = RESdata.errorChartList;
+
+        graph_redraw(i, chartX, chartY);
+        addData(myChart, chartCount, chartDATAS);
+
+        ErrorTitle[i] = document.createElement("p");
+        ErrorTitle[i].textContent = `위 이미지에서 오류가 존재합니다`;
+        ErrorTitle[i].id = "addText";
+        chartDiv[i].insertAdjacentElement("afterend", ErrorTitle[i]);
+      } else {
+        ErrorTitle[i].textContent = "그 외 오류";
+        img[i].insertAdjacentElement("afterend", ErrorTitle[i]);
+      }
+    });
+};
+
+console.log(chartStatus);
+for (let i = 0; i < img.length; i++) {
   ErrorTitle[i] = document.createElement("p");
   ErrorTitle[i].id = "addText";
-
-  RESdata = resData(img[i].src);
-
-  chartStatus = RESdata["status"];
-
-  if (chartStatus == "NOT_BAR") {
-    ErrorTitle[i].textContent = "막대그래프가 아닙니다";
-    img[i].insertAdjacentElement("afterend", ErrorTitle[i]);
-  } else if (chartStatus == "NO_ERROR") {
-    ErrorTitle[i].textContent = "교정할 오류가 없습니다";
-    img[i].insertAdjacentElement("afterend", ErrorTitle[i]);
-  } else if (chartStatus == "ERROR_FOUND") {
-    ex[i] = document.createElement("p");
-    ex[i].textContent = "오류 교정 그래프";
-    ex[i].id = "addP";
-    img[i].insertAdjacentElement("afterend", ex[i]);
-
-    chartDiv[i] = document.createElement("div");
-    chart[i] = document.createElement("canvas");
-    chart[i].id = "chart" + i;
-    chart[i].width = img[i].width;
-    chart[i].height = img[i].height;
-    chartDiv[i].appendChild(chart[i]);
-    ex[i].insertAdjacentElement("afterend", chartDiv[i]);
-
-    chartX = RESdata["xlabels"];
-    chartY = [RESdata["ylabels"][-1], RESdata["ylabels"][0]];
-    chartCount = RESdata["chartDataList"].length;
-    chartDATAS = RESdata["chartDataList"];
-    chartERROR = RESdata["errorChartList"];
-
-    graph_redraw(i, chartX, chartY);
-    addData(myChart, chartCount, chartDATAS);
-
-    ErrorTitle[i] = document.createElement("p");
-    ErrorTitle[i].textContent = `위 이미지에서 오류가 존재합니다`;
-    ErrorTitle[i].id = "addText";
-    chartDiv[i].insertAdjacentElement("afterend", ErrorTitle[i]);
-  } else {
-    ErrorTitle[i].textContent = "그 외 오류";
-    img[i].insertAdjacentElement("afterend", ErrorTitle[i]);
-  }
+  RESdata = resData(img[i].src, i);
 }
 
-function graph_redraw(count, chartX, chartY) {
+graph_redraw = (count, chartX, chartY) => {
   context = document.getElementById("chart" + count).getContext("2d");
   myChart = new Chart(context, {
     type: "bar",
@@ -102,9 +107,9 @@ function graph_redraw(count, chartX, chartY) {
       },
     },
   });
-}
+};
 
-function addData(myChart, chartCount, chartDATAS) {
+addData = (myChart, chartCount, chartDATAS) => {
   for (let i = 0; i < chartCount; i++) {
     chartCOLOR[i] = chartDATAS[i]["legendColor"];
     chartlabel[i] = chartDATAS[i]["legend"];
@@ -124,9 +129,9 @@ function addData(myChart, chartCount, chartDATAS) {
   }
 
   myChart.update();
-}
+};
 
-function ToHex(N) {
+ToHex = (N) => {
   if (N == null) return "00";
   N = parseInt(N);
   if (N == 0) return "00";
@@ -139,4 +144,4 @@ function ToHex(N) {
     "0123456789ABCDEF".charAt((N - (N % 16)) / 16) +
     "0123456789ABCDEF".charAt(N % 16)
   );
-}
+};
