@@ -1,12 +1,10 @@
 const img = document.querySelectorAll("img");
-const img_link = [
-  "https://postfiles.pstatic.net/MjAyMjExMTdfMTM4/MDAxNjY4NjczNjA5OTI0.ER37XA-npgdClsWtPvmadPsBFdwIEO0JSqD3s6Ci6d0g.NIYZDPEVPdwEvSNzfm_0xji80w5SZS4GhcIgnOLBrZAg.PNG.dlwldmscjstk/test.PNG?type=w580",
-  "https://postfiles.pstatic.net/MjAyMjExMThfMTU4/MDAxNjY4NzY1MjM0ODMy.oIM9EFxEahIBe6BJuXrWwDqo5qB6Yf1V4gcQhgqXtU8g.MCbIoaSGKdouod2gBE2xyL1fftFqu4UcpUnPbHNLpL0g.JPEG.dlwldmscjstk/cat.jpg?type=w580",
-  "https://postfiles.pstatic.net/MjAyMjExMThfMzkg/MDAxNjY4NzY1MTc4Njk1.UajJ5lfLy6g5PWQpgHcbUz45sVjr1C9y88b2I9jq6skg.f7rT6QdvU3KHKFvJPWijys0W6Bkw402xWjuc9RhBeLEg.PNG.dlwldmscjstk/image5.png?type=w580",
-  "https://postfiles.pstatic.net/MjAyMjExMTlfMTY2/MDAxNjY4ODM4NjAyNDY3.z2pt8liJ8t1_JfkxDa9QVJ1sodKsyPEpXNyutHTMwc4g.qrMvs7MbL-NE9xXFnAfLJRf10o8pVkroM4pEYtX2xlIg.PNG.dlwldmscjstk/errortest.png?type=w580",
-  "https://postfiles.pstatic.net/MjAyMjExMThfMjgx/MDAxNjY4NzY1MjI5NjEz.UQbIL30i4PVGoUSDe7aPizaDB8hH0Tgy3iuVzCJ9-m8g.YnQeghS6i7aOzJeIcfNxNmasRd8_3n0CMnwJcDRQ-jsg.PNG.dlwldmscjstk/img6.png?type=w580",
-  "https://postfiles.pstatic.net/MjAyMjExMThfMTU4/MDAxNjY4NzY1MjM0ODMy.oIM9EFxEahIBe6BJuXrWwDqo5qB6Yf1V4gcQhgqXtU8g.MCbIoaSGKdouod2gBE2xyL1fftFqu4UcpUnPbHNLpL0g.JPEG.dlwldmscjstk/cat.jpg?type=w580",
-];
+const img_link = [];
+
+for (let i = 0; i < img.length; i++) {
+  img_link[i] = img[i].src;
+}
+
 const ErrorTitle = [];
 const ErrorText = [];
 
@@ -111,9 +109,9 @@ graph_redraw = (count, chartX, chartY) => {
 
 addData = (myChart, chartCount, chartDATAS) => {
   for (let i = 0; i < chartCount; i++) {
-    chartCOLOR[i] = chartDATAS[i]["legendColor"];
-    chartlabel[i] = chartDATAS[i]["legend"];
-    chartDATA[i] = chartDATAS[i]["valueTexts"];
+    chartCOLOR[i] = chartDATAS[i].legendColor;
+    chartlabel[i] = chartDATAS[i].legend;
+    chartDATA[i] = chartDATAS[i].valueTexts;
 
     let Bcolor =
       "#" +
