@@ -87,7 +87,7 @@ console.log(chartStatus);
 for (let i = 0; i < img.length; i++) {
   ErrorTitle[i] = document.createElement("p");
   ErrorTitle[i].id = "addText";
-  RESdata = resData(img[i].src, i);
+  RESdata = resData(img[i], i);
 }
 
 graph_redraw = (count, chartX, chartY) => {
