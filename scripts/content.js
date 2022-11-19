@@ -42,7 +42,6 @@ resData = async (link, i) => {
     .then((RESdata) => {
       console.log(RESdata);
       chartStatus = RESdata.status;
-      console.log(chartStatus);
       if (chartStatus == "NOT_BAR") {
         ErrorTitle[i].textContent = "막대그래프가 아닙니다";
         img[i].insertAdjacentElement("afterend", ErrorTitle[i]);
@@ -116,7 +115,6 @@ resData = async (link, i) => {
     });
 };
 
-console.log(chartStatus);
 for (let i = 0; i < img.length; i++) {
   ErrorTitle[i] = document.createElement("p");
   ErrorTitle[i].id = "addText";
@@ -187,3 +185,40 @@ ToHex = (N) => {
     "0123456789ABCDEF".charAt(N % 16)
   );
 };
+
+chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
+  console.log(req);
+  let TF_graph;
+  let TF_text;
+  TF_graph = req.TF_graph;
+  TF_text = req.TF_text;
+  let chart;
+  let text;
+  if (TF_graph) {
+    console.log(TF_graph);
+    chart = document.querySelectorAll("#chartDiv");
+    for (let i = 0; i < chart.length; i++) {
+      chart[i].style.display = "none";
+    }
+  } else if (!TF_graph) {
+    console.log(TF_graph);
+    chart = document.querySelectorAll("#chartDiv");
+    for (let i = 0; i < chart.length; i++) {
+      chart[i].style.display = "";
+    }
+  }
+  if (TF_text) {
+    console.log(TF_text);
+    text = document.querySelectorAll("#addErrText");
+    console.log(text);
+    for (let i = 0; i < text.length; i++) {
+      text[i].style.display = "none";
+    }
+  } else if (!TF_text) {
+    console.log(TF_text);
+    text = document.querySelectorAll("#addErrText");
+    for (let i = 0; i < text.length; i++) {
+      text[i].style.display = "";
+    }
+  }
+});
