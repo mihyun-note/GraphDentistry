@@ -21,5 +21,6 @@
     }
   ],
 
-  "host_permissions": ["http://kwhcclab.com:20701/api/chambit/graph"]
+  "host_permissions": ["http://kwhcclab.com:20701/api/chambit/graph"],
+  "permissions": ["scripting"]
 }

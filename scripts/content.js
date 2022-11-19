@@ -7,6 +7,8 @@ for (let i = 0; i < img.length; i++) {
 
 const ErrorTitle = [];
 const ErrorText = [];
+const errBar = [];
+const errBarText = [];
 
 const chartDiv = [];
 const chart = [];
@@ -29,7 +31,6 @@ let myChart;
 let RESdata;
 
 resData = async (link, i) => {
-  console.log(link, i);
   await fetch("http://kwhcclab.com:20701/api/chambit/graph", {
     method: "POST",
     headers: {
@@ -55,6 +56,7 @@ resData = async (link, i) => {
         img[i].insertAdjacentElement("afterend", ex[i]);
 
         chartDiv[i] = document.createElement("div");
+        chartDiv[i].id = "chartDiv";
         chart[i] = document.createElement("canvas");
         chart[i].id = "chart" + i;
         chart[i].width = img[i].width;
@@ -71,9 +73,42 @@ resData = async (link, i) => {
         addData(myChart, chartCount, chartDATAS);
 
         ErrorTitle[i] = document.createElement("p");
-        ErrorTitle[i].textContent = `위 이미지에서 오류가 존재합니다`;
+        ErrorTitle[i].textContent = `오류가 존재합니다`;
         ErrorTitle[i].id = "addText";
         chartDiv[i].insertAdjacentElement("afterend", ErrorTitle[i]);
+
+        for (let j = 0; j < chartERROR.length; j++) {
+          let Bcolor =
+            "#" +
+            ToHex(chartERROR[j].color[2]) +
+            ToHex(chartERROR[j].color[1]) +
+            ToHex(chartERROR[j].color[0]);
+
+          errBarText[j] =
+            "<span style = 'background-Color:" +
+            Bcolor +
+            ";'>(" +
+            (j + 1) +
+            ")" +
+            "</span>" +
+            "<span>" +
+            " [" +
+            chartERROR[j].legend +
+            "]범례의 [" +
+            chartERROR[j].xlabel +
+            "]막대에서 대략 [" +
+            chartERROR[j].errorDiff.toFixed(1) +
+            "]만큼의 차이가 존재합니다" +
+            "<span/><br/>";
+        }
+
+        errBar[i] = document.createElement("p");
+
+        for (let q = 0; q < chartERROR.length; q++) {
+          errBar[i].innerHTML += errBarText[q];
+        }
+        errBar[i].id = "addErrText";
+        ErrorTitle[i].insertAdjacentElement("afterend", errBar[i]);
       } else {
         ErrorTitle[i].textContent = "그 외 오류";
         img[i].insertAdjacentElement("afterend", ErrorTitle[i]);

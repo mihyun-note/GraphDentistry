@@ -9,13 +9,13 @@
         background-color: #052f5f;
         font-family: "Ubuntu", sans-serif;
         width: 450px;
+        padding: 10px;
       }
 
       .main {
+        padding-bottom: 5px;
+        margin-top: -20px;
         background-color: #ffffff;
-        width: 400px;
-        height: 400px;
-        margin: 3em auto;
         border-radius: 1.5em;
         box-shadow: 0px 11px 35px 5px rgba(0, 0, 0, 0.14);
       }
@@ -44,14 +44,13 @@
         margin: 10px;
         width: 15%;
         position: absolute;
-        top: 130px;
+        top: 110px;
         left: 50%;
         transform: translateX(-50%);
       }
 
       .dentistryTitle {
         margin-top: 25px;
-        margin-bottom: 10px;
         padding-left: 20px;
         padding-right: 20px;
         font-family: "Ubuntu", sans-serif;
@@ -63,12 +62,16 @@
 
       .dentistry {
         border: 2px solid #f1a208;
-        border-radius: 1.2em;
-        margin-left: 30px;
-        margin-right: 30px;
+        border-radius: 1em;
+        margin: 10px 30px 20px 30px;
         padding: 10px;
         font-family: "Ubuntu", sans-serif;
         font-size: 13px;
+      }
+
+      form {
+        text-align: center;
+        accent-color: #052f5f;
       }
     </style>
     <script src="popup.js"></script>
@@ -91,8 +94,30 @@
         <div class="dentistryTitle">교정 내용</div>
         <div class="dentistry">
           <li>실제 데이터와 그래프 수치가 다른 오류</li>
-          <li>축 간격이 일정하지 않은 오류</li>
+          <li>그래프의 Y축 간격이 일정하지 않은 오류</li>
         </div>
+      </div>
+
+      <div>
+        <div class="dentistryTitle">교정 선택</div>
+        <form class="dentistry">
+          <input
+            type="checkbox"
+            name="Dentistry"
+            value="DentistryGraph"
+            id="DentistryGraph"
+            checked
+          />
+          교정 그래프
+          <input
+            type="checkbox"
+            name="Dentistry"
+            value="DentistryText"
+            id="DentistryText"
+            checked
+          />
+          오류 내역
+        </form>
       </div>
     </div>
   </body>

@@ -203,5 +203,11 @@ body {
 
 #addText {
   border: 2px solid #f4f4f4;
-  background-color: rgba(5, 47, 95, 0.1);
+  background-color: rgba(5, 47, 95, 0.15);
+  font-weight: bold;
+}
+
+#addErrText {
+  border: 2px solid #f4f4f4;
+  background-color: rgba(5, 47, 95, 0.08);
 }
