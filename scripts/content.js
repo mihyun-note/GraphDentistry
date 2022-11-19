@@ -84,19 +84,24 @@ resData = async (link, i) => {
             ToHex(chartERROR[j].color[0]);
 
           errBarText[j] =
-            "<span style = 'background-Color:" +
+            "<span style = 'color:" +
             Bcolor +
-            ";'>(" +
-            (j + 1) +
-            ")" +
+          "; '>" +
+            "●" +
             "</span>" +
             "<span>" +
             " \"" +
+            "<span style = 'font-weight: bold;'>" +
             chartERROR[j].legend +
+            "</span>" +
             "\" 범례의 \"" +
+            "<span style = 'font-weight: bold;'>" +
             chartERROR[j].xlabel +
+            "</span>" +
             "\"막대에서 명시된 텍스트보다 \"" +
+            "<span style = 'font-weight: bold;'>" +
             chartERROR[j].errorDiff.toFixed(1) +
+            "</span>" +
             "\"만큼 차이가 존재하는 것으로 추정됩니다" +
             "<span/><br/>";
         }
