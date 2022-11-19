@@ -18,6 +18,7 @@
   },
   "homepage": "https://github.com/mihyun-note/GraphDentistry#readme",
   "dependencies": {
-    "chart.js": "^3.9.1"
+    "chart.js": "^3.9.1",
+    "chartjs-plugin-datalabels": "^2.1.0"
   }
 }

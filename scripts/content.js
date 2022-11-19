@@ -92,13 +92,13 @@ resData = async (link, i) => {
             ")" +
             "</span>" +
             "<span>" +
-            " [" +
+            " \"" +
             chartERROR[j].legend +
-            "]범례의 [" +
+            "\" 범례의 \"" +
             chartERROR[j].xlabel +
-            "]막대에서 대략 [" +
+            "\"막대에서 명시된 텍스트보다 \"" +
             chartERROR[j].errorDiff.toFixed(1) +
-            "]만큼의 차이가 존재합니다" +
+            "\"만큼 차이가 존재하는 것으로 추정됩니다" +
             "<span/><br/>";
         }
 
@@ -126,6 +126,7 @@ for (let i = 0; i < img.length; i++) {
 graph_redraw = (count, chartX, chartY) => {
   context = document.getElementById("chart" + count).getContext("2d");
   myChart = new Chart(context, {
+    plugins: [ChartDataLabels],
     type: "bar",
     data: {
       labels: chartX,
@@ -136,6 +137,14 @@ graph_redraw = (count, chartX, chartY) => {
         yAxes: {
           min: chartY[0],
           max: chartY[1],
+        },
+      },
+      plugins: {
+        datalabels: {
+          display: true,
+          color: "black",
+          align: "end",
+          anchor: "end",
         },
       },
     },

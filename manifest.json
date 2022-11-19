@@ -16,7 +16,11 @@
 
   "content_scripts": [
     {
-      "js": ["node_modules/chart.js/dist/chart.js", "scripts/content.js"],
+      "js": [
+        "node_modules/chart.js/dist/chart.js",
+        "scripts/content.js",
+        "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"
+      ],
       "matches": ["http://127.0.0.1:5500/*"]
     }
   ],
