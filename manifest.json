@@ -4,6 +4,7 @@
   "description": "그래프 치과",
   "version": "1.0",
 
+
   "action": {
     "default_icon": {
       "16": "images/icon-16.png",
@@ -21,6 +22,7 @@
     }
   ],
 
+
   "host_permissions": ["http://kwhcclab.com:20701/api/chambit/graph"],
-  "permissions": ["scripting"]
+  "permissions": ["scripting","tabs", "storage"]
 }
