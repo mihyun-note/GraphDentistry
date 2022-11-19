@@ -1,5 +1,5 @@
-//const img = document.querySelectorAll("img");
-const img = [
+const img = document.querySelectorAll("img");
+const img_link = [
   "https://postfiles.pstatic.net/MjAyMjExMTdfMTM4/MDAxNjY4NjczNjA5OTI0.ER37XA-npgdClsWtPvmadPsBFdwIEO0JSqD3s6Ci6d0g.NIYZDPEVPdwEvSNzfm_0xji80w5SZS4GhcIgnOLBrZAg.PNG.dlwldmscjstk/test.PNG?type=w580",
   "https://postfiles.pstatic.net/MjAyMjExMThfMTU4/MDAxNjY4NzY1MjM0ODMy.oIM9EFxEahIBe6BJuXrWwDqo5qB6Yf1V4gcQhgqXtU8g.MCbIoaSGKdouod2gBE2xyL1fftFqu4UcpUnPbHNLpL0g.JPEG.dlwldmscjstk/cat.jpg?type=w580",
   "https://postfiles.pstatic.net/MjAyMjExMThfMzkg/MDAxNjY4NzY1MTc4Njk1.UajJ5lfLy6g5PWQpgHcbUz45sVjr1C9y88b2I9jq6skg.f7rT6QdvU3KHKFvJPWijys0W6Bkw402xWjuc9RhBeLEg.PNG.dlwldmscjstk/image5.png?type=w580",
@@ -87,7 +87,7 @@ console.log(chartStatus);
 for (let i = 0; i < img.length; i++) {
   ErrorTitle[i] = document.createElement("p");
   ErrorTitle[i].id = "addText";
-  RESdata = resData(img[i], i);
+  RESdata = resData(img_link[i], i);
 }
 
 graph_redraw = (count, chartX, chartY) => {
