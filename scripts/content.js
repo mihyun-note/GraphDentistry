@@ -193,18 +193,23 @@ chrome.runtime.onMessage.addListener((req, sender, sendResponse) => {
   TF_graph = req.TF_graph;
   TF_text = req.TF_text;
   let chart;
+  let chartP;
   let text;
   if (TF_graph) {
     console.log(TF_graph);
     chart = document.querySelectorAll("#chartDiv");
+    chartP = document.querySelectorAll("#addP");
     for (let i = 0; i < chart.length; i++) {
       chart[i].style.display = "none";
+      chartP[i].style.display = "none";
     }
   } else if (!TF_graph) {
     console.log(TF_graph);
     chart = document.querySelectorAll("#chartDiv");
+    chartP = document.querySelectorAll("#addP");
     for (let i = 0; i < chart.length; i++) {
       chart[i].style.display = "";
+      chartP[i].style.display = "";
     }
   }
   if (TF_text) {
