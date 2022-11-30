@@ -4,7 +4,6 @@
   "description": "그래프 치과",
   "version": "1.0",
 
-
   "action": {
     "default_icon": {
       "16": "images/icon-16.png",
@@ -22,11 +21,10 @@
         "scripts/content.js",
         "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"
       ],
-      "matches": ["http://127.0.0.1:5500/*"]
+      "matches": ["http://localhost:5500/*"]
     }
   ],
 
-
-  "host_permissions": ["http://kwhcclab.com:20701/api/chambit/graph"],
-  "permissions": ["scripting","tabs", "storage"]
+  "host_permissions": ["https://kwhcclab.com:20701/api/chambit/graph"],
+  "permissions": ["scripting", "tabs", "storage"]
 }

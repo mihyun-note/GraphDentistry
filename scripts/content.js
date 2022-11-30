@@ -1,5 +1,7 @@
-const img = document.querySelectorAll("img");
-const img_link = [];
+const body = document.querySelector("body");
+const img = body.querySelectorAll("img");
+
+console.log(img_link);
 
 for (let i = 0; i < img.length; i++) {
   img_link[i] = img[i].src;
@@ -31,7 +33,7 @@ let myChart;
 let RESdata;
 
 resData = async (link, i) => {
-  await fetch("http://kwhcclab.com:20701/api/chambit/graph", {
+  await fetch("https://kwhcclab.com:20701/api/chambit/graph", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
