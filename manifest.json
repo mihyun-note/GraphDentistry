@@ -21,7 +21,7 @@
         "scripts/content.js",
         "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"
       ],
-      "matches": ["http://localhost:5500/*"]
+      "matches": ["http://127.0.0.1:5500/index_Demo.html"]
     }
   ],
 

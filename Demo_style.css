@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Hahmlet&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Hahmlet&display=swap");
 img {
   width: 100%;
 }
@@ -120,7 +120,6 @@ body {
   text-align: center;
 }
 #body > ul li {
-  float: left;
   list-style: none;
   padding: 3%;
   width: 36%;
@@ -132,7 +131,8 @@ body {
 }
 
 .body_left {
-  margin-right: 10%;
+  margin-right: 8%;
+  float: right;
 }
 
 .cat {
@@ -211,6 +211,6 @@ body {
   background-color: rgba(5, 47, 95, 0.08);
 }
 
-#addErrText span:nth-child(2){
+#addErrText span:nth-child(2) {
   margin-top: -4%;
 }

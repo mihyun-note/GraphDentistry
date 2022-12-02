@@ -1,7 +1,7 @@
 const body = document.querySelector("body");
 const img = body.querySelectorAll("img");
 
-console.log(img_link);
+let img_link = [];
 
 for (let i = 0; i < img.length; i++) {
   img_link[i] = img[i].src;
