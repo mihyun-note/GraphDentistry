@@ -7,4 +7,4 @@ Graph Dentistry는 페이지 내의 막대그래프 이미지를 인식해 그�
 * 오류 교정 그래프는 텍스트 데이터에 기반하여 제작됩니다
 
 ## Download
-https://chrome.google.com/webstore/detail/graph-dentistry/
+https://chrome.google.com/webstore/detail/graph-dentistry/ejapihdfeciaajmlaklkelkibaglgphp?hl=ko
