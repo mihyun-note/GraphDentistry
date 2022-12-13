@@ -1,0 +1,21 @@
+#addP {
+  margin-top: 8% !important;
+  font-size: large;
+  font-weight: bold;
+  margin-bottom: 2% !important;
+}
+
+#addText {
+  border: 2px solid #f4f4f4;
+  background-color: rgba(5, 47, 95, 0.15);
+  font-weight: bold;
+}
+
+#addErrText {
+  border: 2px solid #f4f4f4;
+  background-color: rgba(5, 47, 95, 0.08);
+}
+
+#addErrText span:nth-child(2) {
+  margin-top: -4%;
+}
