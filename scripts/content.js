@@ -5,20 +5,16 @@ let img_link = [];
 
 for (let i = 0; i < img.length; i++) {
   img_link[i] = img[i].src;
-  console.log(img_link[i]);
 }
 
 const ErrorTitle = [];
 const ErrorText = [];
 const errBar = [];
 const errBarText = [];
-
 const chartDiv = [];
 const chart = [];
-
 const ex = [];
 
-//chart 데이터를 담을 변수
 let chartX = [];
 let chartY = [];
 let chartDATAS = [];
@@ -30,7 +26,6 @@ let chartStatus = "";
 
 let context;
 let myChart;
-
 let RESdata;
 
 resData = async (link, i) => {
@@ -45,7 +40,6 @@ resData = async (link, i) => {
     .then((RESdata) => {
       console.log(RESdata);
       if (img[i].offsetWidth > 300) {
-        console.log("통과");
         chartStatus = RESdata.status;
         if (chartStatus == "NOT_BAR") {
           ErrorTitle[i].textContent = "";

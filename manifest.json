@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Graph Dentistry",
-  "description": "그래프 치과",
+  "description": "왜곡이 존재하는 그래프를 교정해주는 그래프 치과입니다📊",
   "version": "1.0",
 
   "action": {
@@ -21,10 +21,10 @@
         "scripts/content.js",
         "node_modules/chartjs-plugin-datalabels/dist/chartjs-plugin-datalabels.js"
       ],
-      "matches": ["http://127.0.0.1:5500/index_Demo.html"]
+      "matches": ["https://*/*", "http://*/*"]
     }
   ],
 
   "host_permissions": ["https://kwhcclab.com:20701/api/chambit/graph"],
-  "permissions": ["scripting", "tabs", "storage"]
+  "permissions": ["tabs"]
 }
